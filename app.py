@@ -7,3 +7,9 @@ chime = Chime()
 def index():
   chime.ring()
   return "ding."
+
+@app.route('/gitlab')
+def gitlab():
+  pipeline = request.get_json()
+  if pipeline['object_attributes']['status'] == 'success':
+    chime.ring()
