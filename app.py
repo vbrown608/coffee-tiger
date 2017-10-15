@@ -1,6 +1,9 @@
 from flask import Flask
+from move_motor import Chime
 app = Flask(__name__)
+chime = Chime()
 
-@app.route('/')
-def hello_world():
-    return "Hello world!"
+@app.route('/ding')
+def index():
+  chime.ring()
+  return "ding."
